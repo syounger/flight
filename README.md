@@ -254,7 +254,8 @@ Flight::route('/user/*', function(){
 If you want to inspect the matching route information, you can request for the route
 object to be passed to your callback by passing in `true` as the third parameter in
 the route method. The route object will always be the last parameter passed to your
-callback function.
+callback function. You can also pass an array as the third parameter, and it will be 
+added to the method parameters.
 
 ```php
 Flight::route('/', function($route){
