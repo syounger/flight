@@ -313,8 +313,11 @@ class Engine {
             $params = array_values($route->params);
 
             // Add route info to the parameter list
-            if ($route->pass) {
+            if ($route->pass === true) {
                 $params[] = $route;
+            }
+            if(is_array($route->pass)){
+              $params = array_merge($params, $route->pass);
             }
 
             // Call route handler
@@ -480,7 +483,7 @@ class Engine {
             ->write($json)
             ->send();
     }
-	
+
     /**
      * Sends a JSONP response.
      *
